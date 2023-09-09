@@ -1,9 +1,12 @@
 import './App.css'
+import SignIn from './components/SignIn/SignIn';
+import SignUp from './components/SignUp/SignUp';
 
 function App() {
   return (
     <>
-    <h1>Hello World</h1>
+    <SignUp />
+    {/* < SignIn /> */}
     </>
   )
 }

@@ -6,3 +6,29 @@
   -webkit-text-size-adjust: 100%;
 }
 
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  outline: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+h1, h2, h3, p, label, a {
+  font-family: "Roboto";
+}
+
+input {
+  font-family: "Roboto";
+  font-weight: 500;
+}
+
+body {
+  background-color: rgb(230, 230, 230);
+}
+
