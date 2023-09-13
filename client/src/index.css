@@ -26,9 +26,14 @@ h1, h2, h3, p, label, a {
 input {
   font-family: "Roboto";
   font-weight: 500;
+  display: block;
+  outline: none;
 }
 
 body {
   background-color: rgb(230, 230, 230);
+  background: url('./images/mountain.jpg') no-repeat;
+  background-size: auto;
+  background-attachment: fixed;
 }
 
