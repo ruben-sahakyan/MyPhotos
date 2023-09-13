@@ -10,14 +10,29 @@ export default function SignIn() {
     const [password, setPassword] = useState('');
 
     const [errorText, setErrorText] = useState('');
-    function loginForm(ev) {
+
+    async function loginForm(ev) {
         ev.preventDefault();
         if(email.trim() === '') {
             setErrorText('Please add email')
         } else if(password.trim() === '') {
             setErrorText('Please add password')
         } else {
-            navigate('/');
+            fetch('http://localhost:5000/signin', {
+                "method": "POST",
+                body: JSON.stringify({email, password}),
+                headers: {
+                    'content-type': "application/json",
+                },
+                credentials: "include",
+            }).then(resp => resp.json()).then(info => {
+                if(info) {
+                    return navigate('/');
+                } else {
+                    setErrorText('incorrect email or password');
+                    setPassword('');
+                }
+            })
         }
     }
     return (

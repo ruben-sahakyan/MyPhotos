@@ -15,7 +15,7 @@ export default function SignUp() {
 
     const [errorText, setErrorText] = useState('');
 
-    function registerForm(ev) {
+    async function registerForm(ev) {
         ev.preventDefault();
         console.log({firstName, lastName, email, gender, password, confirmPassword});
         if(firstName.trim() === '') {
@@ -33,7 +33,20 @@ export default function SignUp() {
         } else if(password !== confirmPassword) {
             setErrorText('Passwords do not match')
         } else {
-            navigate('/signin');
+            fetch('http://localhost:5000/signup', {
+                'method': "POST",
+                body: JSON.stringify({firstName, lastName, email, gender, password}),
+                headers: {
+                    'content-type': "application/json",
+                },
+                credentials: 'include',
+            }).then(resp => resp.json()).then(info => {
+                if(info) {
+                    return navigate('/signin')
+                } else {
+                    setErrorText('chstacvec grancvel noric porcir')
+                }
+            })
         }
     }
 

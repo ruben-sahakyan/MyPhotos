@@ -19,6 +19,7 @@ export default function Layout() {
                     <p>Ruben123</p>
                 </div>
                 <div className="log-out">
+                <span class="material-symbols-outlined logout-symbol">logout</span>
                 </div>
             </div>
             </>: 
