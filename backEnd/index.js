@@ -1,36 +1,26 @@
 import express from "express";
 import cors from "cors";
-import dotenv from "dotenv";
-import mongoose from "mongoose";
-
-// import MongoDB schema.
-import user from "./models/user";
+// import dotenv from "dotenv";
 
 
+/*  Controllers  */
+import { 
+    signInControllers,
+    signUpControllers, 
+    usersControllers 
+} from "./controllers/userControllers.js";
 
-dotenv.config();
 
 const app = express();
-
 app.use(express.json());
 app.use(cors({credentials: true, origin: process.env.localhost}));
 
 
+/* routes  */
+app.post('/signin', signInControllers);
+app.post('/signup', signUpControllers);
+app.get('/users', usersControllers);
 
-app.get('/', (req, res) => {
-    res.send('Hello World')
-});
-
-app.post('/signup', (req, res) => {
-    const {firstName, lastName, email, gender, password} = req.body;
-    console.log(req.body);
-    res.json(true)
-});
-
-app.post('/signin', (req, res) => {
-    console.log(req.body);
-    res.json(true);
-});
 
 
 

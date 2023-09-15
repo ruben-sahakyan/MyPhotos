@@ -17,18 +17,23 @@ export default function SignUp() {
 
     async function registerForm(ev) {
         ev.preventDefault();
-        console.log({firstName, lastName, email, gender, password, confirmPassword});
         if(firstName.trim() === '') {
             setErrorText('Please add first name');
-        } else if(lastName.trim() === '') {
+        }else if(firstName.length < 2 || firstName.length > 10) {
+            setErrorText('first name petqa mec lini 2 u poqr lini 10');
+        }else if(lastName.trim() === '') {
             setErrorText('Please add last name');
-        } else if(email.trim() === '') {
+        }else if(lastName.length < 2 || lastName.length > 12) {
+            setErrorText('first name petqa mec lini 2 u poqr lini 12')
+        }else if(email.trim() === '') {
             setErrorText('Please add email')
         } else if(gender.trim() === '') {
             setErrorText('Please add gender')
         } else if(password.trim() === '') {
             setErrorText('Please add password')
-        } else if(confirmPassword.trim() === '') {
+        } else if(password.length < 5 || password.length > 15) {
+            setErrorText('password@ petqa lini mec 5 ic poqr 15');
+        }else if(confirmPassword.trim() === '') {
             setErrorText('Please confirm password')
         } else if(password !== confirmPassword) {
             setErrorText('Passwords do not match')
@@ -41,15 +46,17 @@ export default function SignUp() {
                 },
                 credentials: 'include',
             }).then(resp => resp.json()).then(info => {
-                if(info) {
-                    return navigate('/signin')
+                if(info.status === 400) {
+                    setErrorText('Failed to register')
+                    setEmail('');
+                    setPassword('');
+                    setConfirmPassword('');
                 } else {
-                    setErrorText('chstacvec grancvel noric porcir')
+                    return navigate('/signin');
                 }
             })
         }
-    }
-
+    };
     return (
         <>
         <div className="sign-up">
