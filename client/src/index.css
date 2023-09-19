@@ -6,6 +6,7 @@
   -webkit-text-size-adjust: 100%;
 }
 
+
 * {
   margin: 0px;
   padding: 0px;
@@ -32,8 +33,9 @@ input {
 
 body {
   background-color: rgb(230, 230, 230);
-  background: url('./images/mountain.jpg') no-repeat;
+  /* background: url('./images/mountain.jpg') no-repeat;
   background-size: auto;
-  background-attachment: fixed;
+  background-attachment: fixed; */
+  background-color: white;
 }
 

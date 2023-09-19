@@ -1,11 +1,14 @@
 .sign-in {
-    width: 400px;
-    height: 290px;
+    min-width: 375px;
+    max-width: 400px;
+    min-height: 270px;
     border: 1px solid white;
     margin: 30px auto;
     backdrop-filter: blur(10px);
     border-radius: 10px;
-    box-shadow: 4px 4px 20px 5px rgb(176, 175, 175);
+    box-shadow: 2px 5px 4px 2px rgb(206, 206, 206);
+    background: rgb(215,215,215);
+    background: linear-gradient(140deg, rgba(215,215,215,1) 0%, rgba(241,241,241,1) 100%);
 
 
     h1 {
@@ -13,15 +16,20 @@
         margin-top: 5px;
         font-family: 'Roboto';
         font-weight: 100;
-        color: white;
+        color: gray;
         font-size: 40px;
     }
 
-    p {
-        text-align: center;
-        color: red;
+    .error-text {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: rgb(153, 0, 0);
+        width: 100%;
+        height: 50px;
         margin-top: 10px;
         font-size: 12px;
+        background-color: rgb(255, 173, 173);
     }
 
     form {
@@ -32,15 +40,15 @@
         input {
             width: 100%;
             height: 30px;
-            border: 1px solid white;
-            border-radius: 8px;
+            border: 1px solid rgb(191, 191, 191);
+            border-radius: 5px;
             background: transparent;
             padding-left: 10px;
             color: gray;
             margin-bottom: 10px;
 
             &::placeholder {
-                color: white;
+                color: gray;
             }
         }
 
@@ -56,26 +64,52 @@
             border: 1px solid blue;
             background-color: blue;
             color: wheat;
-            border-radius: 8px;
+            border-radius: 5px;
             margin-top: 20px;
         }
     }
-    a {
-        display: block;
-        width: 60px;
-        text-align: center;
-        margin-top: 15px;
-        margin-left: calc(50% - 30px);
-        color: blue;
-        font-size: 12px;
+    section {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-left: 10px;
+        padding-right: 10px;
+        margin-top: 25px;
+        
+        p {
+            color: blue;
+            font-size: 11px;
+            cursor: pointer;
+            margin-bottom: 5px;
+        }
     }
 }
 
 
+.password-section {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    border-radius: 5px;
+    padding-right: 10px;
+    width: 100%;
+    height: 30px;
+    border: 1px solid rgb(191, 191, 191);
+    margin-bottom: 10px;
 
+    .password-input {
+        width: 340px;
+        margin-top: 10px;
+        border: none;
+    }
 
-
-
+    p {
+        margin-top: 6px;
+        color: gray;
+        font-size: 25px;
+        cursor: pointer;
+    }
+}
 
 
 

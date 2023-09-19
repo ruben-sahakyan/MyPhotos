@@ -1,11 +1,20 @@
-import { useState } from "react";
+import { useState, useContext, useEffect } from "react";
 import "./layout.scss";
 import { Link, Outlet, useNavigate } from "react-router-dom";
-import  logo  from '../../images/logo.png';
+import  logo  from '../../images/logorabbit.png';
+import { UserContext } from "../Context/UserContext";
 
 
 export default function Layout() {
     const [userState, setUserState] = useState(false);
+    const {user, setUser} = useContext(UserContext);
+    // useEffect(() => {
+    //     fetch('http://localhost:5000/userProfile', {
+    //         "method": "GET",
+    //     }).then(resp => resp.json()).then(info => {
+    //         setUser(info);
+    //     })
+    // }, []);
     return (
         <>
         <header>
@@ -16,10 +25,10 @@ export default function Layout() {
             <>
             <div className="user-profile-section">
                 <div className="user-profile">
-                    <p>Ruben123</p>
+                    <p>ruben@gmail.com</p>
                 </div>
                 <div className="log-out">
-                <span class="material-symbols-outlined logout-symbol">logout</span>
+                <span className="material-symbols-outlined logout-symbol">logout</span>
                 </div>
             </div>
             </>: 

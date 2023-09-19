@@ -13,6 +13,9 @@ export default function SignUp() {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
 
+    const [showPassowrd, setShowPassword] = useState(false);
+    const [showConfirmPassowrd, setShowConfirmPassword] = useState(false);
+
     const [errorText, setErrorText] = useState('');
 
     async function registerForm(ev) {
@@ -61,26 +64,46 @@ export default function SignUp() {
         <>
         <div className="sign-up">
             <h1>Sign Up</h1>
-            <p className="error-text">{errorText}</p>
+            {errorText ? <p className="error-text">{errorText}</p> : <></>}
             <form onSubmit={registerForm}>
                 <label>First Name</label>
                 <input type="text" name="firstName" placeholder="first name" value={firstName} onChange={ev => {setFirstName(ev.target.value)}}/>
+
                 <label>Last Name</label>
                 <input type="text" name="lastName" placeholder="last name" value={lastName} onChange={ev => {setLastName(ev.target.value)}}/>
+
                 <label>Email</label>
                 <input type="text" name="email" placeholder="email" value={email} onChange={ev => {setEmail(ev.target.value)}}/>
-                <label>Password</label>
-                <input type="password" name="password" placeholder="password" value={password} onChange={ev => {setPassword(ev.target.value)}}/>
-                <label>Confirm password</label>
-                <input type="password" name="confirmPassword" placeholder="confirm password" value={confirmPassword} onChange={ev => {setConfirmPassword(ev.target.value)}}/>
+
+                <label>Passowrd</label>
+                <section className="password-section">
+                    <input className="password-input" type={showPassowrd ? 'text' : 'password'} placeholder="password"
+                    value={password} onChange={ev => {setPassword(ev.target.value)}}
+                    />
+                    <p onClick={() => {setShowPassword(!showPassowrd)}}>
+                        {showPassowrd ? <span class="material-symbols-outlined">visibility</span> :
+                         <span className="material-symbols-outlined">visibility_off</span>}</p>
+                </section>
+
+                <label>Confirm passowrd</label>
+                <section className="password-section">
+                    <input className="password-input" type={showConfirmPassowrd ? 'text' : 'password'} placeholder="password"
+                    value={confirmPassword} onChange={ev => {setConfirmPassword(ev.target.value)}}
+                    />
+                    <p onClick={() => {setShowConfirmPassword(!showConfirmPassowrd)}}>
+                        {showConfirmPassowrd ? <span class="material-symbols-outlined">visibility</span> :
+                         <span className="material-symbols-outlined">visibility_off</span>}</p>
+                </section>
+
                 <section className="gender-section">
                     <label>Male</label>
                     <input className="gender-radio-btn" type="radio" name="gender" value="male" onChange={ev => {setGender(ev.target.value)}}/>
                     <label>Fimale</label>
                     <input className="gender-radio-btn" type="radio" name="gender" value="female" onChange={ev => {setGender(ev.target.value)}}/>
                 </section>
+
                 <button>SIGN UP</button>
-                <Link to='http://127.0.0.1:5173/signin'>
+                <Link to='/signin'>
                     Sign In
                 </Link>
             </form>

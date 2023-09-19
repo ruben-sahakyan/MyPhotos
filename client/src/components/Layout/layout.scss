@@ -3,15 +3,19 @@ header {
     height: 60px;
     backdrop-filter: blur(10px);
     border-bottom: 1px solid rgb(204, 204, 204);
-    box-shadow: 0px 2px 20px 0px rgb(205, 205, 205);
+    // box-shadow: 0px 2px 20px 0px rgb(205, 205, 205);
+    box-shadow: 0px 0px 4px 4px rgb(206, 206, 206);
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    background: rgb(215,215,215);
+    background: linear-gradient(140deg, rgba(215,215,215,1) 0%, rgba(241,241,241,1) 100%);
 
     .logo {
         width: 50px;
         height: 50px;
-        border-radius: 50%;
+        margin-top: 5px;
+        border-radius: 20%;
     }
 
     .header-nav {
